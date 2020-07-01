@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
 
-class submitFunc():
+class submitPage():
     def __init__(self,dirver):
         self.driver = dirver
 

@@ -12,7 +12,7 @@ class dataInit():
     ####################国有建设用地使用权##################
     # 土地首次登记数据
     def getLandFirstRegisterData(self):
-        querySQL = "select bdcdyh from KJK.dc_djdcbxx where zt='1' and sfyx='0' and qllx='3' and bdcdyh >'0' and rownum < 30 order by dbms_random.value()"
+        querySQL = "select bdcdyh from KJK.dc_djdcbxx where zt='1' and sfyx='0' and tdzl>'0' and dytdmjhj > '0' and qllx='3' and bdcdyh >'0' and rownum < 30 order by dbms_random.value()"
         queryRes = self.db_qj_conn.SqlExecute(querySQL)
         print("权籍查询数据：%s" % queryRes)
         # 检查该数据是否在登记平台做过登记,如果做过登记，发起流程会校验住，确保数据在权藉存在，在登记平台未做过登记

@@ -9,13 +9,12 @@ from pageObject.sqbPage import sqbPage
 from pageObject.bdcjbxxPage import bdcjbxxPage
 from pageObject.sflzbPage import sflzbPage
 from pageObject.blyjPage import blyjPage
-from pageObject.common.submitFunc import submitFunc
-from pageObject.common.FsOrShPage import FsOrShPage
-from pageObject.common.dbPage import dbPage
+from pageObject.submitPage import submitPage
+# from pageObject.common.submitFunc import submitFunc
 from dataCheck.dataResCheck import dataResCheck
 from utils.getTestdata import getTestcaseData,getTestdataPath
 
-from pageObject.submitPage import submitFunc
+# from pageObject.submitPage import submitFunc
 
 class Test_landFirstRegister():
     def setup(self):
@@ -28,7 +27,7 @@ class Test_landFirstRegister():
         self.djlx = data.get('initdata').get('djlx', None)
         self.ywlx = data.get('initdata').get('ywlx', None)
         self.sfTemplate = data.get('initdata').get('sfTemplate')
-        self.splc = data.get('splc')
+        self.splc = data.get('initdata').get('splc')
         print("用例里splc为：",self.splc)
         self.qlrParams = {
             "ywlxNode": "firstRegister",
@@ -71,23 +70,12 @@ class Test_landFirstRegister():
         sflzbPage(self.driver).sflzbHandle(self.sfTemplate)
         # 受理意见表
         blyjPage(self.driver).blyjHandle()
-        # # 受理提交
-        # submitFunc(self.driver).submitHandle('sl')
-        # # 复审环节
-        # FsOrShPage(self.driver).FsOrShHandle(bdcdyh)
-        # # 复审提交
-        # submitFunc(self.driver).submitHandle('fs')
-        # # 等簿环节
-        # FsOrShPage(self.driver).FsOrShHandle(bdcdyh)
-        # # 等簿提交
-        # dbPage(self.driver).dbHandle()
-
         # 受理
-        submitFunc(self.driver).slHandle()
+        submitPage(self.driver).slHandle()
         # 审核
-        submitFunc(self.driver).shHandle(bdcdyh,cmdopt,self.splc)
+        submitPage(self.driver).shHandle(bdcdyh,cmdopt,self.splc)
         # 登簿
-        submitFunc(self.driver).dbHandle(bdcdyh)
+        submitPage(self.driver).dbHandle(bdcdyh)
 
         # 登簿后数据库检查
         qlrmc = self.qlrParams.get("qlrmc")

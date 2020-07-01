@@ -15,8 +15,9 @@ class sqbPage():
         time.sleep(4)
 
         if qllx == '国有建设用地使用权' or qllx =='国有建设用地使用权/房屋（构筑物）所有权':
+            pass
             # 独用土地面积
-            WebTools(self.driver).input_content('xpath', "//input[@xid='tdsyqdymj']",'0')
+            # WebTools(self.driver).input_content('xpath', "//input[@xid='tdsyqdymj']",'0')
                 # 获取独用土地面积，该字段为空提交会存在必填校验，需要传值
                 # import execjs
                 # try:
