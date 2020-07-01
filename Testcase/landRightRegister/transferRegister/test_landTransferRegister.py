@@ -9,13 +9,9 @@ from pageObject.sqbPage import sqbPage
 from pageObject.bdcjbxxPage import bdcjbxxPage
 from pageObject.sflzbPage import sflzbPage
 from pageObject.blyjPage import blyjPage
-from pageObject.common.submitFunc import submitFunc
-from pageObject.common.FsOrShPage import FsOrShPage
-from pageObject.common.dbPage import dbPage
+from pageObject.submitPage import submitPage
 from dataCheck.dataResCheck import dataResCheck
 from utils.getTestdata import getTestcaseData,getTestdataPath
-
-from pageObject.submitPage import submitFunc
 
 class Test_landTransferRegister():
     def setup(self):
@@ -26,6 +22,7 @@ class Test_landTransferRegister():
         self.djlx = data.get('initdata').get('djlx', None)
         self.ywlx = data.get('initdata').get('ywlx', None)
         self.sfTemplate = data.get('initdata').get('sfTemplate')
+        self.splc = data.get('initdata').get('splc')
         self.qlrParams = {
             "ywlxNode": "changeRegister",
             "qlrmc": generateQLRName(),
@@ -34,7 +31,7 @@ class Test_landTransferRegister():
             "qlrtxdz": generateAddr()
         }
 
-    def test_landTransferRegister(self,login):
+    def test_landTransferRegister(self,login,cmdopt):
         '''
         :流程 国有建设用地使用权--转移登记--转移登记
         :param login: 装饰器，登录操作封装，返回信息：(1) webdriver对象（2）数据库配置信息 例如：(<selenium.webdriver.chrome.webdriver.WebDriver (session="f8c32afd6fd5c944984d9aeaadfa9341")>,
@@ -65,35 +62,13 @@ class Test_landTransferRegister():
         sflzbPage(self.driver).sflzbHandle(self.sfTemplate)
         #受理意见表
         blyjPage(self.driver).blyjHandle()
-        # #受理提交
-        # submitFunc(self.driver).submitHandle('sl')
-        # #复审（分局地籍科）环节
-        # FsOrShPage(self.driver).FsOrShHandle(bdcdyh)
-        # #复审（分局地籍科）提交
-        # submitFunc(self.driver).submitHandle('fs')
-        # #复审（分局分管领导）环节
-        # FsOrShPage(self.driver).FsOrShHandle(bdcdyh)
-        # #复审（分局分管领导）提交
-        # submitFunc(self.driver).submitHandle('fs')
-
-        # #局长登录  -- 办件中心  --市局地籍处 --
-        # #复审（市局地籍处）环节
-        # FsOrShPage(self.driver).FsOrShHandle(bdcdyh)
-        # #复审（市局地籍处）提交
-        # submitFunc(self.driver).submitHandle('fs')
-        # #复审（市局分管领导领导）环节
-        # FsOrShPage(self.driver).FsOrShHandle(bdcdyh)
-        # #等簿提交
-        # dbPage(self.driver).dbHandle()
-
         # 受理
-        submitFunc(self.driver).slHandle()
+        submitPage(self.driver).slHandle()
         # 审核
-        submitFunc(self.driver).shHandle(bdcdyh,2)
+        submitPage(self.driver).shHandle(bdcdyh,cmdopt,self.splc)
         # 登簿
-        submitFunc(self.driver).dbHandle(bdcdyh)
+        submitPage(self.driver).dbHandle(bdcdyh)
 
-        #校验数据库(后期可以把数据库连接串配置化，这样可以针对不同环境校验)
         qlrmc = self.qlrParams.get("qlrmc")
         if qlrmc:
             try:

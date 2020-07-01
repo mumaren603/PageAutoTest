@@ -10,11 +10,8 @@ from pageObject.bdcjbxxPage import bdcjbxxPage
 from pageObject.sflzbPage import sflzbPage
 from pageObject.blyjPage import blyjPage
 from pageObject.submitPage import submitPage
-# from pageObject.common.submitFunc import submitFunc
 from dataCheck.dataResCheck import dataResCheck
 from utils.getTestdata import getTestcaseData,getTestdataPath
-
-# from pageObject.submitPage import submitFunc
 
 class Test_landFirstRegister():
     def setup(self):
@@ -28,7 +25,6 @@ class Test_landFirstRegister():
         self.ywlx = data.get('initdata').get('ywlx', None)
         self.sfTemplate = data.get('initdata').get('sfTemplate')
         self.splc = data.get('initdata').get('splc')
-        print("用例里splc为：",self.splc)
         self.qlrParams = {
             "ywlxNode": "firstRegister",
             "qlrmc": generateQLRName(),

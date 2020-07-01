@@ -7,5 +7,5 @@ initdata:
   #审批流程
   splc:
     wxtest: 3
-    tztest: 5
+    tztest: 2
     yxtest: 2
