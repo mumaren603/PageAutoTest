@@ -1,0 +1,111 @@
+{
+  "uid" : "a19e00fc6be2d202",
+  "name" : "test_landDyChangeRegister[login0]",
+  "fullName" : "test_landDyChangeRegister.Test_landDyChangeRegister#test_landDyChangeRegister",
+  "historyId" : "317612790c270c8855043cdee5ca20ee",
+  "time" : {
+    "start" : 1589595160354,
+    "stop" : 1589595238899,
+    "duration" : 78545
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "login",
+    "time" : {
+      "start" : 1589595140123,
+      "stop" : 1589595159737,
+      "duration" : 19614
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "d8bc1f9e7b979f7d",
+      "name" : "stdout",
+      "source" : "d8bc1f9e7b979f7d.txt",
+      "type" : "text/plain",
+      "size" : 887
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "login::0",
+    "time" : {
+      "start" : 1589595241348,
+      "stop" : 1589595241348,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "test_landDyChangeRegister"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_landDyChangeRegister"
+  }, {
+    "name" : "host",
+    "value" : "WIN-A6TDK969PGS"
+  }, {
+    "name" : "thread",
+    "value" : "5068-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_landDyChangeRegister"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "login",
+    "value" : "{'user': 'zcy', 'passwd': 123456}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "80ccf7032129e11e",
+      "status" : "broken",
+      "statusDetails" : "Exception",
+      "time" : {
+        "start" : 1589594255576,
+        "stop" : 1589594275366,
+        "duration" : 19790
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "a19e00fc6be2d202.json",
+  "parameterValues" : [ "{'user': 'zcy', 'passwd': 123456}" ]
+}

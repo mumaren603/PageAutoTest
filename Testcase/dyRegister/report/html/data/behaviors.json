@@ -1,0 +1,18 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "test_landDyChangeRegister[login0]",
+    "uid" : "a19e00fc6be2d202",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1589595160354,
+      "stop" : 1589595238899,
+      "duration" : 78545
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ "{'user': 'zcy', 'passwd': 123456}" ]
+  } ]
+}

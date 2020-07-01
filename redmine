@@ -1,0 +1,23 @@
+后期使用pytest框架
+
+fixture(scope=session)
+数据初始化
+比如在执行所有用例前 ，清空在办件
+delete from ywbdk.yw_sqxx where ajzt='1'
+delete from ywbdk.yw_sqxxzb where ajzt='1'
+
+
+函数介绍：
+：function  chooseNode(self,qllx,djlx,ywlx):
+    '''
+    :param qllx 权利类型
+    :param ywlx 业务烈性
+    '''
+
+
+        qllx = "查封登记"
+        djlx = ""
+        ywlx = "查封登记（包括轮候查封）（05001）"
+        params = {"fwlb": "商品房","ywxl":"查封登记"}  # dict
+        cqType = "房屋"   #查询界面区分房屋还是净地
+        xzType = '抵押'   #查询界面限制提醒，如异议，抵押，查封登

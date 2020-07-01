@@ -1,0 +1,11 @@
+[ {
+  "uid" : "a19e00fc6be2d202",
+  "name" : "test_landDyChangeRegister[login0]",
+  "time" : {
+    "start" : 1589595160354,
+    "stop" : 1589595238899,
+    "duration" : 78545
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

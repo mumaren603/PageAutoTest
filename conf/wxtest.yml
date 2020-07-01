@@ -1,0 +1,13 @@
+envinfo:
+  #浏览器驱动
+  browserDriver: D:/python/pageAutoTest/chromeDriver/chromedriver.exe
+  #url
+  url: http://192.168.1.246:8080
+  #数据库
+  db:
+    qj: 192.168.1.10:1521/orclkjk
+    dj: 192.168.1.10:1521/orcldj
+  #登录用户
+  loginUser:
+    user: zcy
+    passwd: 123456

@@ -1,0 +1,15 @@
+envinfo:
+  #浏览器驱动
+  browserDriver: D:/python/pageAutoTest/chromeDriver/chromedriver.exe
+  #url
+  url: http://172.0.0.248:8080
+  #数据库
+  db:
+    qj: KJK/KJK@172.0.0.247:1521/tzkjk
+    dj: DJJGK/DJJGK@172.0.0.247:1521/tzdj
+  #登录用户
+  loginUser:
+    user: zcy
+    passwd: 123456
+
+

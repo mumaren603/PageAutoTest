@@ -1,0 +1,22 @@
+<selenium.webdriver.chrome.webdriver.WebDriver (session="57d2a52199f332b9e68861cea35f7026")> <class 'selenium.webdriver.chrome.webdriver.WebDriver'>
+数据库连接信息：<cx_Oracle.Connection to KJK@192.168.1.247:1521/tzkjk>
+数据库连接成功
+数据库连接信息：<cx_Oracle.Connection to DJJGK@192.168.1.247:1521/tzdj>
+数据库连接成功
+DJJGK查询数据：321202115023GB01110W00000000
+数据符合！数据为：321202115023GB01110W00000000
+办件受理数据为：321202115023GB01110W00000000
+业务小类： None
+房屋类别： None
+数据库连接信息：<cx_Oracle.Connection to DJJGK@192.168.1.247:1521/tzdj>
+数据库连接成功
+数据库连接信息：<cx_Oracle.Connection to KJK@192.168.1.247:1521/tzkjk>
+数据库连接成功
+dj_dy: 1
+dj_djben: 1
+dj_dy_djben_zm: 1
+dj_qlrgl: 1
+dj_qlr: 1
+dj_zm: 1
+数据库数据归档正确!
+数据库检查结果是： True

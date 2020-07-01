@@ -1,0 +1,8 @@
+initdata:
+  qllx: 国有建设用地使用权及房屋所有权
+  djlx: 首次登记
+  ywlx: 商品房、征地拆迁安置房、经适房、房改售房（02101）
+  sfTemplate: tz
+  params:
+    ywxl: 市场化商品房首次登记
+

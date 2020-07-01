@@ -1,0 +1,26 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "test_landDyChangeRegister",
+    "children" : [ {
+      "name" : "Test_landDyChangeRegister",
+      "children" : [ {
+        "name" : "test_landDyChangeRegister[login0]",
+        "uid" : "a19e00fc6be2d202",
+        "parentUid" : "7410a2fb2b5b00416102f4ab3dd67083",
+        "status" : "passed",
+        "time" : {
+          "start" : 1589595160354,
+          "stop" : 1589595238899,
+          "duration" : 78545
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'user': 'zcy', 'passwd': 123456}" ]
+      } ],
+      "uid" : "7410a2fb2b5b00416102f4ab3dd67083"
+    } ],
+    "uid" : "b551407ec152a9169533775774c20162"
+  } ]
+}

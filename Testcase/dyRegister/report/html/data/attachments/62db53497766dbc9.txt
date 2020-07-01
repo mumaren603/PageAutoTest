@@ -1,0 +1,9 @@
+<selenium.webdriver.chrome.webdriver.WebDriver (session="843db81aa42e8985aabfbd6047d5fcc0")> <class 'selenium.webdriver.chrome.webdriver.WebDriver'>
+数据库连接信息：<cx_Oracle.Connection to KJK@192.168.1.247:1521/tzkjk>
+数据库连接成功
+数据库连接信息：<cx_Oracle.Connection to DJJGK@192.168.1.247:1521/tzdj>
+数据库连接成功
+DJJGK查询数据：321202003015GB00330W00000000
+数据符合！数据为：321202003015GB00330W00000000
+办件受理数据为：320000000000000000000
+xpath://table[@xid='resultTable']//input[@type='checkbox']元素未找到

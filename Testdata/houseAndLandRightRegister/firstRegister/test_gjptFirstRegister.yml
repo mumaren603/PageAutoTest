@@ -1,0 +1,9 @@
+initdata:
+  qllx: 国有建设用地使用权及房屋所有权
+  djlx: 首次登记
+  ywlx: 建筑物区分业主共有部分（02103）
+  sfTemplate: tz
+  params:
+    ywxl: None
+    fwlb: None
+    sffz: False    #True--发证  False--不发证

@@ -1,0 +1,43 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "WIN-A6TDK969PGS",
+    "children" : [ {
+      "name" : "5068-MainThread",
+      "children" : [ {
+        "name" : "test_landDyChangeRegister[login0]",
+        "uid" : "a19e00fc6be2d202",
+        "parentUid" : "56f7d3944403aca46b87cd0c8bc80be8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1589595160354,
+          "stop" : 1589595238899,
+          "duration" : 78545
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'user': 'zcy', 'passwd': 123456}" ]
+      } ],
+      "uid" : "56f7d3944403aca46b87cd0c8bc80be8"
+    }, {
+      "name" : "9160-MainThread",
+      "children" : [ {
+        "name" : "test_landDyChangeRegister[login0]",
+        "uid" : "80ccf7032129e11e",
+        "parentUid" : "9e5c205cb04ca6ff6db27059068365cc",
+        "status" : "broken",
+        "time" : {
+          "start" : 1589594255576,
+          "stop" : 1589594275366,
+          "duration" : 19790
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "{'user': 'zcy', 'passwd': 123456}" ]
+      } ],
+      "uid" : "9e5c205cb04ca6ff6db27059068365cc"
+    } ],
+    "uid" : "b1a387f309ab970e8b4530b352593b92"
+  } ]
+}
