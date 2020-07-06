@@ -1,5 +1,5 @@
 import pytest
-from utils.getConfig import collect_static_data2
+from utils.getConfig import collect_static_data
 
 # hook
 # 注册自定义参数 env 到配置对象
@@ -21,7 +21,7 @@ def cmdopt(request):
 @pytest.fixture(scope='module',autouse=True)
 def getConfValue(request,cmdopt):
     '''装饰器：根据环境配置文件获取配置文件yaml值'''
-    request.config.base_data = collect_static_data2(cmdopt)
+    request.config.base_data = collect_static_data(cmdopt)
     return request.config.base_data
 
 
