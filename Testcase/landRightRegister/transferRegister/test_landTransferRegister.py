@@ -31,7 +31,7 @@ class Test_landTransferRegister():
             "qlrtxdz": generateAddr()
         }
 
-    def test_landTransferRegister(self,login,cmdopt):
+    def test_landCancelRegister(self,login,cmdopt):
         '''
         :流程 国有建设用地使用权--转移登记--转移登记
         :param login: 装饰器，登录操作封装，返回信息：(1) webdriver对象（2）数据库配置信息 例如：(<selenium.webdriver.chrome.webdriver.WebDriver (session="f8c32afd6fd5c944984d9aeaadfa9341")>,
@@ -72,7 +72,7 @@ class Test_landTransferRegister():
         qlrmc = self.qlrParams.get("qlrmc")
         if qlrmc:
             try:
-                resDataCheck = dataResCheck(dbInfo).landRegisterDataCheck(bdcdyh, qlrmc)
+                resDataCheck = dataResCheck(dbInfo).landRegisterDataCheck(bdcdyh)
                 print("数据库检查结果是：",resDataCheck)
                 assert resDataCheck
             except AssertionError:
@@ -82,4 +82,4 @@ class Test_landTransferRegister():
         self.driver.quit()
 
 if __name__ == '__main__':
-    pytest.main(['-v', 'test_landTransferRegister'])
+    pytest.main(['-v', 'test_landCancelRegister'])

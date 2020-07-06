@@ -1,0 +1,11 @@
+initdata:
+  qllx: 国有建设用地使用权
+  djlx: 注销登记
+  ywlx: 注销登记（01401）
+  #收费模板
+  sfTemplate: tz
+  #审批流程
+  splc:
+    wxtest: 1
+    tztest: 1
+    yxtest: 2

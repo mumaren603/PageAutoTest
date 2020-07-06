@@ -21,7 +21,7 @@ class dataInit():
         print("登记平台数据条数为：%s" % queryJsydsyqSQLRes)
         if queryJsydsyqSQLRes:
             print("登记平台该土地信息已登记，重新获取数据！")
-            return dataInit().getLandFirstRegisterData()  # 递归
+            return dataInit(self.dbInfo).getLandFirstRegisterData()  # 递归
         else:
             print("数据符合！数据为：%s" % queryRes)
             self.db_qj_conn.closeConn()
@@ -40,7 +40,7 @@ class dataInit():
         querySqxxzbSQLRes = self.db_dj_conn.SqlExecute(querySqxxzbSQL)
         if querySqxxSQLRes or querySqxxzbSQLRes:
             print("该数据已在办理中，重新获取数据！")
-            return dataInit().getLandChangeRegisterData()  # 递归
+            return dataInit(self.dbInfo).getLandChangeRegisterData()  # 递归
         else:
             print("数据符合！数据为：%s" % queryRes)
             self.db_qj_conn.closeConn()
@@ -62,10 +62,10 @@ class dataInit():
         querySqxxzbSQLRes = self.db_dj_conn.SqlExecute(querySqxxzbSQL)
         if queryHouseSQLRes:
             print("该土地上存在现势房产，重新获取数据！")
-            return dataInit().getLandCancleRegisterData()  # 递归
+            return dataInit(self.dbInfo).getLandCancleRegisterData()  # 递归
         elif querySqxxSQLRes or querySqxxzbSQLRes:
             print("该数据已在办理中，重新获取数据！")
-            return dataInit().getLandCancleRegisterData()  # 递归
+            return dataInit(self.dbInfo).getLandCancleRegisterData()  # 递归
         else:
             print("数据符合！数据为：%s" % queryRes)
             self.db_dj_conn.closeConn()
@@ -85,7 +85,7 @@ class dataInit():
         querySqxxzbSQLRes = self.db_dj_conn.SqlExecute(querySqxxzbSQL)
         if querySqxxSQLRes or querySqxxzbSQLRes:
             print("该数据已在办理中，重新获取数据！")
-            return dataInit().getSpfFirstRegisterData()  # 递归
+            return dataInit(self.dbInfo).getSpfFirstRegisterData()  # 递归
         else:
             print("数据符合！数据为：%s" % queryRes)
             self.db_qj_conn.closeConn()
@@ -152,7 +152,7 @@ class dataInit():
         querySqxxzbSQLRes = self.db_dj_conn.SqlExecute(querySqxxzbSQL)
         if querySqxxSQLRes or querySqxxzbSQLRes:
             print("该数据已在办理中，重新获取数据！")
-            return dataInit().getSpfFirstChangeData()  # 递归
+            return dataInit(self.dbInfo).getSpfFirstChangeData()  # 递归
         else:
             print("数据符合！数据为：%s" % queryRes)
             self.db_qj_conn.closeConn()
@@ -172,7 +172,7 @@ class dataInit():
         querySqxxzbSQLRes = self.db_dj_conn.SqlExecute(querySqxxzbSQL)
         if querySqxxSQLRes or querySqxxzbSQLRes:
             print("该数据已在办理中，重新获取数据！")
-            return dataInit().getLandFirstDyData()  # 递归
+            return dataInit(self.dbInfo).getLandFirstDyData()  # 递归
         else:
             print("数据符合！数据为：%s" % queryRes)
             self.db_qj_conn.closeConn()
@@ -191,7 +191,7 @@ class dataInit():
         querySqxxzbSQLRes = self.db_dj_conn.SqlExecute(querySqxxzbSQL)
         if querySqxxSQLRes or querySqxxzbSQLRes:
             print("该数据已在办理中，重新获取数据！")
-            return dataInit().getLandFirstDyData()  # 递归
+            return dataInit(self.dbInfo).getLandFirstDyData()  # 递归
         else:
             print("数据符合！数据为：%s" % queryRes)
             self.db_qj_conn.closeConn()
@@ -210,7 +210,7 @@ class dataInit():
         querySqxxzbSQLRes = self.db_dj_conn.SqlExecute(querySqxxzbSQL)
         if querySqxxSQLRes or querySqxxzbSQLRes:
             print("该数据已在办理中，重新获取数据！")
-            return dataInit().getLandFirstDyData()  # 递归
+            return dataInit(self.dbInfo).getLandFirstDyData()  # 递归
         else:
             print("数据符合！数据为：%s" % queryRes)
             self.db_qj_conn.closeConn()
@@ -229,7 +229,7 @@ class dataInit():
         querySqxxzbSQLRes = self.db_dj_conn.SqlExecute(querySqxxzbSQL)
         if querySqxxSQLRes or querySqxxzbSQLRes:
             print("该数据已在办理中，重新获取数据！")
-            return dataInit().getHouseDyChangeRegisterData()  # 递归
+            return dataInit(self.dbInfo).getHouseDyChangeRegisterData()  # 递归
         else:
             print("数据符合！数据为：%s" % queryRes)
             self.db_qj_conn.closeConn()

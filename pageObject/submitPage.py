@@ -66,11 +66,11 @@ class submitPage():
         #登簿提交
         WebTools(self.driver).mouse_click('xpath',"//div[@id='applicationHost']/div[1]/div[2]/div/section[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/span[2]")
 
-        #任务流转==>制证
+        #任务流转==>制证(非注销流程)
         WebTools(self.driver).mouse_click('xpath',"//span[@xid='span31_1']")
 
         #等待跳转到办件中心
         try:
-            WebDriverWait(self.driver, 12).until(EC.visibility_of_element_located((By.XPATH, "//span[@xid='myTask']")))
+            WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located((By.XPATH, "//span[@xid='myTask']")))
         except TimeoutError:
             raise TimeoutError

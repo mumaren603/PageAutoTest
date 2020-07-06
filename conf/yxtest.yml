@@ -2,12 +2,14 @@ envinfo:
   #浏览器驱动
   browserDriver: D:/python/pageAutoTest/chromeDriver/chromedriver.exe
   #url
-  #url: http://172.0.0.245:8080
-  url: http://192.168.1.245:8080
+  url: http://172.0.0.245:8080
+#  url: http://192.168.1.245:8080
   #数据库
   db:
-    qj: KJK/KJK@192.168.1.247:1521/orclkjk
-    dj: DJJGK/DJJGK@192.168.1.247:1521/orcldj
+    qj: KJK/KJK@172.0.0.247:1521/orclkjk
+    dj: DJJGK/DJJGK@172.0.0.247:1521/orcldj
+#    qj: KJK/KJK@192.168.1.247:1521/orclkjk
+#    dj: DJJGK/DJJGK@192.168.1.247:1521/orcldj
   #登录用户
   loginUser:
     user: sy
