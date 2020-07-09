@@ -25,12 +25,12 @@ class WebTools(object):
         :return:
         '''
         import datetime
-        # import allure
-        filename = 'D:/python/pageAutoTest/error_'+datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')+'.png'
+        import allure
+        filename = 'D:/python/pageAutoTest/errorInfo/error_'+datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')+'.png'
         self.driver.save_screenshot(filename)
         with open(filename,mode='rb')as f:
             data = f.read()
-        # allure.attach(data,img_doc,allure.attachment_type.PNG)
+        allure.attach(data,img_doc,allure.attachment_type.PNG)
 
     #对浏览器的设置
     def set_browser(self,testUrl):
@@ -107,6 +107,7 @@ class WebTools(object):
                 self.driver.find_element_by_link_text(value).send_keys(inputvalue)
         except NoSuchElementException as e:
             print("%s:%s元素未找到" %(type,value))
+            self.save_screenshot('输入框元素未找到。')
             raise Exception
 
     # 下拉框选值
@@ -124,8 +125,9 @@ class WebTools(object):
             elif type == "name":
                 self.driver.find_element_by_name(droplistName).find_element_by_name(value).click()
         except NoSuchElementException:
-                print("%s:%s元素未找到" % (type, value))
-                raise Exception
+            print("%s:%s元素未找到" % (type, value))
+            self.save_screenshot('下拉框元素未找到。')
+            raise Exception
 
     # 鼠标事件(单击)
     def mouse_click(self, type, value):
@@ -170,9 +172,16 @@ class WebTools(object):
             elif type == "link_text":
                 elm = self.driver.find_element_by_link_text(value)
                 ActionChains(self.driver).double_click(elm).perform()
-        except NoSuchElementException:
-                print("%s:%s元素未找到" % (type, value))
-                raise Exception
+        except NoSuchElementException as e1:
+            print("%s:%s元素未找到" % (type, value))
+            self.save_screenshot('双击元素未找到。')
+            raise e1
+        except TimeoutException as e2:
+            print("%s:%s元素查找超时" % (type, value))
+            self.save_screenshot('查找元素超时')
+            raise e2
+        except Exception as e:
+            raise e
 
     # 文本框清空
     def input_clear(self, type, value):
@@ -198,12 +207,15 @@ class WebTools(object):
                 WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.NAME,value)))
             elif type == "link_text":
                 WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((By.LINK_TEXT,value)))
-        except NoSuchElementException as e:
+        except NoSuchElementException as e1:
             print("%s:%s元素未找到，弹出框校验失败" %(type,value))
-        except TimeoutError:
-            print("查找时间过长")
-        except:
-            raise
+            self.save_screenshot('查找元素超时')
+            raise e1
+        except TimeoutError as e2:
+            print("%s:%s元素查找超时" % (type, value))
+            self.save_screenshot('查找元素超时')
+            raise e2
+
 
     # 获取子元素
     def select_child_elements(self, type, value1, value2):

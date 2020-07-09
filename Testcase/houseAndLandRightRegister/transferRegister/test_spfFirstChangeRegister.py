@@ -16,6 +16,7 @@ from pageObject.common.submitFunc import submitFunc
 from pageObject.common.FsOrShPage import FsOrShPage
 from pageObject.common.dbPage import dbPage
 from dataCheck.dataResCheck import dataResCheck
+from utils.getTestdata import getTestcaseData,getTestdataPath
 
 # 参数
 qllx = "国有建设用地使用权及房屋所有权"

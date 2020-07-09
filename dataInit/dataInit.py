@@ -75,7 +75,7 @@ class dataInit():
     ####################国有建设用地使用权及房屋所有权##################
     # 商品房首次登记查询数据
     def getSpfFirstRegisterData(self):
-        querySQL = "select a.bdcdyh from (select bdcdyh, fwbh, lszfwbh from kjk.dc_h_fwzk where zt = '1' and sfyx = '0' and fwxz > '0' and fwjg > '0' and fwyt1 > '0' and scjzmj > '0' and jgrq > '0' and gytdmj is not null and bdcdyh like '%GB%' and (fwlx = '1' or fwlx = '2' or fwlx = '3' or fwlx = '4' or fwlx = '99'))a left join (select fwbh from kjk.dc_h where zt = '1' and bdcdyh > '0') b on a.fwbh = b.fwbh left join (select zddm, fwbh from kjk.dc_z where zt = '1') c on a.lszfwbh = c.fwbh left join (select zddm from kjk.dc_djdcbxx where zt = '1' and sfyx = '1') d on c.zddm = d.zddm  order by dbms_random.value()"
+        querySQL = "select a.bdcdyh from (select bdcdyh, fwbh, lszfwbh from kjk.dc_h_fwzk where zt = '1' and sfyx = '0' and fwxz > '0' and fwjg > '0' and fwyt1 > '0' and scjzmj > '0' and jgrq > '0' and bdcdyh like '%GB%' and (fwlx = '1' or fwlx = '2' or fwlx = '3' or fwlx = '4' or fwlx = '99'))a left join (select fwbh from kjk.dc_h where zt = '1' and bdcdyh > '0') b on a.fwbh = b.fwbh left join (select zddm, fwbh from kjk.dc_z where zt = '1') c on a.lszfwbh = c.fwbh left join (select zddm from kjk.dc_djdcbxx where zt = '1' and sfyx = '1') d on c.zddm = d.zddm  order by dbms_random.value()"
         queryRes = self.db_qj_conn.SqlExecute(querySQL)
         print("权籍查询数据为：%s" % queryRes)
         # 检查该数据是否存在待办件

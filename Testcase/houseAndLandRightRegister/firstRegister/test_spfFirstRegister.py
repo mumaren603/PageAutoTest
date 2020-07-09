@@ -1,6 +1,3 @@
-'''
-国有建设用地使用权及房屋所有权 -- 首次登记 -- 商品房、征地拆迁安置房、经适房、房改售房（02101）
-'''
 import pytest,os
 from dataInit.dataInit import dataInit
 from pageObject.taskCenter import taskCenter
@@ -12,12 +9,9 @@ from pageObject.sqbPage import sqbPage
 from pageObject.bdcjbxxPage import bdcjbxxPage
 from pageObject.sflzbPage import sflzbPage
 from pageObject.blyjPage import blyjPage
-from pageObject.common.submitFunc import submitFunc
-from pageObject.common.FsOrShPage import FsOrShPage
-from pageObject.common.dbPage import dbPage
 from dataCheck.dataResCheck import dataResCheck
 from utils.getTestdata import getTestcaseData,getTestdataPath
-
+from pageObject.submitPage import submitPage
 
 class Test_spfFirstRegister():
     def setup(self):
@@ -30,6 +24,7 @@ class Test_spfFirstRegister():
         self.ywlx = data.get('initdata').get('ywlx', None)
         self.sfTemplate = data.get('initdata').get('sfTemplate')
         self.params = data.get('initdata').get('params')
+        self.splc = data.get('initdata').get('splc')
         self.qlrParams = {
             "ywlxNode": "firstRegister",
             "qlrmc": generateQLRName(),
@@ -38,9 +33,7 @@ class Test_spfFirstRegister():
             "qlrtxdz": generateAddr()
         }
 
-
-
-    def test_spfFristRegister(self,login):
+    def test_spfFristRegister(self,login,cmdopt):
         '''
         :流程 国有建设用地使用权及房屋所有权--首次登记--商品房、征地拆迁安置房、经适房、房改售房（02101）
         :param login: 装饰器，登录操作封装，返回信息：(1) webdriver对象（2）数据库配置信息 例如：(<selenium.webdriver.chrome.webdriver.WebDriver (session="f8c32afd6fd5c944984d9aeaadfa9341")>,
@@ -53,34 +46,30 @@ class Test_spfFirstRegister():
         bdcdyh = dataInit(dbInfo).getSpfFirstRegisterData()
         print("办件受理数据为：%s" % bdcdyh)
 
-        #办件中心
+        # 办件中心
         taskCenter(self.driver).common()
-        #选择流程
+        # 选择流程
         taskCenter(self.driver).chooseNode(self.qllx, self.djlx, self.ywlx)
-        #发起查询
+        # 发起查询
         queryFunc(self.driver).query(bdcdyh, self.qllx, self.djlx)
-        #收件单
+        # 收件单
         sjdPage(self.driver).sjdHandle(bdcdyh, self.qllx, **self.params)
-        #申请人情况
+        # 申请人情况
         sqrqkPage(self.driver).sqrqkHandle(**self.qlrParams)
-        #申请表
+        # 申请表
         sqbPage(self.driver).sqbHandle(self.qllx,self.ywlx)
-        #不动产基本信息
+        # 不动产基本信息
         bdcjbxxPage(self.driver).bdcjbxxHandle(self.qllx,self.ywlx)
-        #收费领证表
+        # 收费领证表
         sflzbPage(self.driver).sflzbHandle(self.sfTemplate)
-        #办理意见表
+        # 办理意见表
         blyjPage(self.driver).blyjHandle()
-        #受理提交
-        submitFunc(self.driver).submitHandle('sl')
-        #复审环节
-        FsOrShPage(self.driver).FsOrShHandle(bdcdyh)
-        #复审提交
-        submitFunc(self.driver).submitHandle('fs')
-        #等簿环节
-        FsOrShPage(self.driver).FsOrShHandle(bdcdyh)
-        #等簿提交
-        dbPage(self.driver).dbHandle()
+        # 受理
+        submitPage(self.driver).slHandle()
+        # 审核
+        submitPage(self.driver).shHandle(bdcdyh,cmdopt,self.splc)
+        # 登簿
+        submitPage(self.driver).dbHandle(bdcdyh)
 
         #校验数据库(后期可以把数据库连接串配置化，这样可以针对不同环境校验)
         qlrmc = self.qlrParams.get("qlrmc")

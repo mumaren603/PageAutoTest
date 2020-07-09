@@ -65,7 +65,7 @@ class taskCenter():
             elif qllx == '国有建设用地使用权及房屋所有权':
                 WebTools(self.driver).mouse_click('link_text',"国有建设用地使用权及房屋所有权")
                 if djlx =='首次登记':
-                    if ywlx == '商品房、征地拆迁安置房、经适房、房改售房（02101）':
+                    if ywlx == '商品房、征地拆迁安置房、经适房、房改售房（02101）' or ywlx == '历史性房屋首次登记（包括商品房、征地拆迁安置房、经适房、房改售房）（02101）':
                         WebTools(self.driver).mouse_doubleClick('xpath', "//div[@ywlxid=167090000118]/div[1]")
                         time.sleep(2)
                     elif ywlx == '自建房屋（02102）':
