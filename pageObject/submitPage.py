@@ -61,7 +61,8 @@ class submitPage():
 
         #登簿
         WebTools(self.driver).mouse_click('link_text', '登簿')
-        time.sleep(2)
+        # WebTools(self.driver).check_element_is_exists('xpath',"//td[@xid='DBR']")
+        time.sleep(5)
 
         #登簿提交
         WebTools(self.driver).mouse_click('xpath',"//div[@id='applicationHost']/div[1]/div[2]/div/section[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/span[2]")

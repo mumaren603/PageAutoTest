@@ -59,7 +59,7 @@ class Test_spfFirstRegister():
         # 申请表
         sqbPage(self.driver).sqbHandle(self.qllx,self.ywlx)
         # 不动产基本信息
-        bdcjbxxPage(self.driver).bdcjbxxHandle(self.qllx,self.ywlx)
+        bdcjbxxPage(self.driver).bdcjbxxHandle(self.ywlx)
         # 收费领证表
         sflzbPage(self.driver).sflzbHandle(self.sfTemplate)
         # 办理意见表

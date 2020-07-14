@@ -79,11 +79,13 @@ class dataInit():
         queryRes = self.db_qj_conn.SqlExecute(querySQL)
         print("权籍查询数据为：%s" % queryRes)
         # 检查该数据是否存在待办件
-        querySqxxSQL = "select count(1) from ywbdk.yw_sqxx where ajzt='1' and sfyx=1 and bdcdyh='" + queryRes + "'"
-        querySqxxzbSQL = "select count(1) from ywbdk.yw_sqxxzb where ajzt='1' and sfyx=1 and bdcdyh='" + queryRes + "'"
+        querySqxxSQL = "select count(1) from YWBDK.yw_sqxx t where t.SFYX = '1' and t.ajzt in ('1', '3', '6') and t.id in (select z.sqbid from ywbdk.yw_sqxxzb z where z.sfyx = '1' and bdcdyh = '" + queryRes + "')"
+        # querySqxxSQL = "select count(1) from ywbdk.yw_sqxx where ajzt='1' and sfyx=1 and bdcdyh='" + queryRes + "'"
+        # querySqxxzbSQL = "select count(1) from ywbdk.yw_sqxxzb where ajzt='1' and sfyx=1 and bdcdyh='" + queryRes + "'"
         querySqxxSQLRes = self.db_dj_conn.SqlExecute(querySqxxSQL)
-        querySqxxzbSQLRes = self.db_dj_conn.SqlExecute(querySqxxzbSQL)
-        if querySqxxSQLRes or querySqxxzbSQLRes:
+        # querySqxxzbSQLRes = self.db_dj_conn.SqlExecute(querySqxxzbSQL)
+        if querySqxxSQLRes:
+        # if querySqxxSQLRes or querySqxxzbSQLRes:
             print("该数据已在办理中，重新获取数据！")
             return dataInit(self.dbInfo).getSpfFirstRegisterData()  # 递归
         else:
@@ -94,11 +96,22 @@ class dataInit():
 
 
     # 自建房屋首次登记
-    # 商品房首次登记查询数据
     def getzjfwFirstRegisterData(self):
-        querySQL = "select a.bdcdyh,d.bdcdyh from （select * from dc_h_fwzk where zt = '1' and sfyx = '0') a left join (select * from dc_h where zt = '1') b on a.fwbh = b.fwbh left join （select * from dc_z where zt = '1') c on a.lszfwbh = c.fwbh left join (select * from dc_djdcbxx where zt = '1' and sfyx = '1') d on c.zddm = d.zddm where a.bdcdyh like '%GB%' order by dbms_random.value()"
+        querySQL = "select a.bdcdyh from （select * from dc_h_fwzk where zt = '1' and sfyx = '0' and fwlx = '1' or fwlx = '2' or fwlx = '3'  or fwlx = '4' or fwlx='5' or fwlx='99') a inner join (select * from dc_h where zt = '1') b on a.fwbh = b.fwbh inner join （select * from dc_z where zt = '1') c on a.lszfwbh = c.fwbh inner join (select * from dc_djdcbxx where zt = '1' and sfyx = '1') d on c.zddm = d.zddm where a.bdcdyh like '%GB%' order by dbms_random.value()"
         queryRes = self.db_qj_conn.SqlExecute(querySQL)
         print("权籍查询数据为：%s" % queryRes)
+        # 检查该数据是否存在待办件
+        querySqxxSQL = "select count(1) from YWBDK.yw_sqxx t where t.SFYX = '1' and t.ajzt in ('1', '3', '6') and t.id in (select z.sqbid from ywbdk.yw_sqxxzb z where z.sfyx = '1' and bdcdyh = '" + queryRes + "')"
+        querySqxxSQLRes = self.db_dj_conn.SqlExecute(querySqxxSQL)
+        if querySqxxSQLRes:
+            print("该数据已在办理中，重新获取数据！")
+            return dataInit(self.dbInfo).getzjfwFirstRegisterData()  # 递归
+        else:
+            print("数据符合！数据为：%s" % queryRes)
+            self.db_qj_conn.closeConn()
+            self.db_dj_conn.closeConn()
+            return queryRes
+
         # 检查该数据是否存在土地抵押情况
         td_bdcdyh = queryRes.replace(queryRes[19:],'W00000000')
         queryTdDySQL= "select count(1) from dj_dy where zt='1' and sfyx=1 and bdcdyh='"+td_bdcdyh +"'"

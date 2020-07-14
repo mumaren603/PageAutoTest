@@ -6,7 +6,7 @@ from utils.getConfig import collect_static_data
 def pytest_addoption(parser):
     '''parser:用户命令行参数与ini文件值的解析器'''
     parser.addoption("--env",       #注册一个命令行选项
-                     default='yxtest',
+                     default='tztest',
                      dest='env',
                      help='set test run env'
                      )

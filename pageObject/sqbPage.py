@@ -14,6 +14,9 @@ class sqbPage():
         WebTools(self.driver).mouse_click('link_text','申请表')
         time.sleep(4)
 
+        print("djlx:", args[0])
+        print("kwargs:", kwargs.get('ywxl'))
+
         if qllx == '国有建设用地使用权' or qllx =='国有建设用地使用权/房屋（构筑物）所有权':
             pass
             # 独用土地面积
@@ -28,8 +31,7 @@ class sqbPage():
                 #     print(e)
 
 
-            print("djlx:",args[0])
-            print("kwargs:", kwargs.get('ywxl'))
+
             # 自建房屋流程没有收件单 领证地址等信息放到申请表页面
             if args[0] =='自建房屋（02102）':
                 # 业务小类

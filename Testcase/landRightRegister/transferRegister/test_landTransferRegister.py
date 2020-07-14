@@ -72,7 +72,7 @@ class Test_landTransferRegister():
         qlrmc = self.qlrParams.get("qlrmc")
         if qlrmc:
             try:
-                resDataCheck = dataResCheck(dbInfo).landRegisterDataCheck(bdcdyh)
+                resDataCheck = dataResCheck(dbInfo).landRegisterDataCheck(bdcdyh,qlrmc)
                 print("数据库检查结果是：",resDataCheck)
                 assert resDataCheck
             except AssertionError:

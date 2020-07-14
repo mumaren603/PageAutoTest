@@ -5,4 +5,8 @@ initdata:
   sfTemplate: tz
   params:
     ywxl: 单位自建房
+  splc:
+    wxtest: 2
+    tztest: 2
+    yxtest: 2
 
