@@ -13,7 +13,7 @@ from dataCheck.dataResCheck import dataResCheck
 from utils.getTestdata import getTestcaseData,getTestdataPath
 from pageObject.submitPage import submitPage
 
-class Test_spfFirstChangeRegister():
+class Test_zygbChangeRegister():
     def setup(self):
         '''初始化用户数据获取'''
         current_file_path = os.path.abspath(__file__).replace('\\', '/')
@@ -33,9 +33,9 @@ class Test_spfFirstChangeRegister():
             "qlrtxdz": generateAddr()
         }
 
-    def test_spfFirstChangeRegister(self,login,cmdopt):
+    def test_zygbChangeRegister(self,login,cmdopt):
         '''
-        :流程 国有建设用地使用权及房屋所有权--转移登记--房屋首次转移登记（含商品房、经适房、安置房）（02201）
+        :流程 国有建设用地使用权及房屋所有权--转移登记--赠与，归并（02205）
         :return:
         '''
         self.driver = login[0]
@@ -69,7 +69,7 @@ class Test_spfFirstChangeRegister():
         # 登簿
         submitPage(self.driver).dbHandle(bdcdyh)
 
-        # 校验数据库(后期可以把数据库连接串配置化，这样可以针对不同环境校验)
+        # 数据库校验
         qlrmc = self.qlrParams.get("qlrmc")
         if qlrmc:
             try:
@@ -83,4 +83,4 @@ class Test_spfFirstChangeRegister():
         self.driver.quit()
 
 if __name__ == '__main__':
-    pytest.main(['-v','test_spfFirstChangeRegister'])
+    pytest.main(['-v','test_zygbChangeRegister'])

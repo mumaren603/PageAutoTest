@@ -85,17 +85,26 @@ class taskCenter():
                         time.sleep(2)
                     else:
                         print("业务类型（%s）不存在！" % self.ywlx)
-                elif self.djlx == '转移登记':
+                elif djlx == '转移登记':
                     WebTools(self.driver).mouse_click('xpath', "//ul[contains(@xid,'subUl1')]/li[2]/a")
-                    if self.ywlx =='房屋首次转移登记（含商品房、经适房、安置房）（02201）':
+                    if ywlx =='房屋首次转移登记（含商品房、经适房、安置房）（02201）':
                         WebTools(self.driver).mouse_doubleClick('xpath', "//div[contains(text(),'房屋首次转移登记（含商品房、经适房、安置房）（02201）')]")
                         time.sleep(2)
-                    elif self.ywlx =='存量房买卖（含公房、解困房、安居房、经适房、安置房）（02203）':
+                    elif ywlx =='存量房买卖（含公房、解困房、安居房、经适房、安置房）（02203）':
                         WebTools(self.driver).mouse_doubleClick('xpath', "//div[contains(text(),'存量房买卖（含公房、解困房、安居房、经适房、安置房）（02203）')]")
                         time.sleep(2)
-                elif self.djlx == '变更登记':
+                    elif ywlx =='房改售房（02202）':
+                        WebTools(self.driver).mouse_doubleClick('xpath', "//div[contains(text(),'房改售房（02202）')]")
+                        time.sleep(2)
+                    elif ywlx =='继承（02204）':
+                        WebTools(self.driver).mouse_doubleClick('xpath', "//div[contains(text(),'继承（02204）')]")
+                        time.sleep(2)
+                    elif ywlx =='赠与，归并（02205）':
+                        WebTools(self.driver).mouse_doubleClick('xpath', "//div[contains(text(),'赠与，归并（02205）')]")
+                        time.sleep(2)
+                elif djlx == '变更登记':
                     pass
-                elif self.djlx == '注销登记':
+                elif djlx == '注销登记':
                     pass
                 else:
                     print("登记类型（%s）不存在！" % self.djlx)
@@ -111,15 +120,15 @@ class taskCenter():
                     elif ywlx == '在建房地产（03103）':
                         WebTools(self.driver).mouse_doubleClick('xpath', "//div[@ywlxid=167090000093]/div[1]")
                         time.sleep(2)
-                elif self.djlx == '转移登记':
+                elif djlx == '转移登记':
                     WebTools(self.driver).mouse_click('xpath', "//ul[contains(@xid,'subUl2')]/li[2]/a")
-                    if self.ywlx == '土地抵押转移（03201）':
+                    if ywlx == '土地抵押转移（03201）':
                         WebTools(self.driver).mouse_doubleClick('xpath', "//div[@ywlxid=167090000094]/div[1]")
                         time.sleep(2)
-                    elif self.ywlx == '不动产抵押转移（03202）':
+                    elif ywlx == '不动产抵押转移（03202）':
                         WebTools(self.driver).mouse_doubleClick('xpath', "//div[@ywlxid=167090000095]/div[1]")
                         time.sleep(2)
-                    elif self.ywlx == '预抵押转现（03204）':
+                    elif ywlx == '预抵押转现（03204）':
                         WebTools(self.driver).mouse_doubleClick('xpath', "//div[@ywlxid=167010000303]/div[1]")
                         time.sleep(2)
             elif qllx == '查封登记':

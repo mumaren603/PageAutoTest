@@ -10,15 +10,29 @@ class sqbPage():
     def __init__(self,driver):
         self.driver = driver
 
-    def sqbHandle(self,qllx,*args,**kwargs):
+    # def sqbHandle(self,qllx,*args,**kwargs):
+    def sqbHandle(self, qllx, ywlx, **kwargs):
         WebTools(self.driver).mouse_click('link_text','申请表')
         time.sleep(4)
 
-        print("djlx:", args[0])
+        # print("djlx:", args[0])
         print("kwargs:", kwargs.get('ywxl'))
 
         if qllx == '国有建设用地使用权' or qllx =='国有建设用地使用权/房屋（构筑物）所有权':
-            pass
+            if ywlx== '自建房屋（02102）':
+                # 业务小类
+                if kwargs.get('ywxl', None) == '个人自建房':
+                    WebTools(self.driver).choose_droplist_value('ywxl', 'name', '//select[@name="ywxl"]/option[3]')
+                elif kwargs.get('ywxl', None) == '单位自建房':
+                    WebTools(self.driver).choose_droplist_value('ywxl', 'name', '//select[@name="ywxl"]/option[2]')
+                else:
+                    print("%s业务业务小类必填！" %ywlx)
+
+                # 领证地址
+                self.driver.execute_script('document.documentElement.scrollTop=500')
+                time.sleep(1)
+                WebTools(self.driver).choose_droplist_value('lzdz', 'name', '//select[@name="lzdz"]/option[2]')
+
             # 独用土地面积
             # WebTools(self.driver).input_content('xpath', "//input[@xid='tdsyqdymj']",'0')
                 # 获取独用土地面积，该字段为空提交会存在必填校验，需要传值
@@ -33,21 +47,20 @@ class sqbPage():
 
 
             # 自建房屋流程没有收件单 领证地址等信息放到申请表页面
-            if args[0] =='自建房屋（02102）':
-                # 业务小类
-                if kwargs.get('ywxl',None) == '个人自建房':
-                    WebTools(self.driver).choose_droplist_value('ywxl', 'name', '//select[@name="ywxl"]/option[3]')
-                elif kwargs.get('ywxl',None) == '单位自建房':
-                    WebTools(self.driver).choose_droplist_value('ywxl', 'name', '//select[@name="ywxl"]/option[2]')
-                else:
-                    print("%s业务业务小类必填！" %args[0])
-                # 领证地址
-                # 将页面滚动条拖到顶部
-                # js= "var q = document.documentElement.scrollTop=0"
-                self.driver.execute_script('document.documentElement.scrollTop=500')
-                time.sleep(1)
-                WebTools(self.driver).choose_droplist_value('lzdz','name','//select[@name="lzdz"]/option[2]')
-
+            # if args[0] =='自建房屋（02102）':
+            #     # 业务小类
+            #     if kwargs.get('ywxl',None) == '个人自建房':
+            #         WebTools(self.driver).choose_droplist_value('ywxl', 'name', '//select[@name="ywxl"]/option[3]')
+            #     elif kwargs.get('ywxl',None) == '单位自建房':
+            #         WebTools(self.driver).choose_droplist_value('ywxl', 'name', '//select[@name="ywxl"]/option[2]')
+            #     else:
+            #         print("%s业务业务小类必填！" %args[0])
+            #     # 领证地址
+            #     # 将页面滚动条拖到顶部
+            #     # js= "var q = document.documentElement.scrollTop=0"
+            #     self.driver.execute_script('document.documentElement.scrollTop=500')
+            #     time.sleep(1)
+            #     WebTools(self.driver).choose_droplist_value('lzdz','name','//select[@name="lzdz"]/option[2]')
         elif qllx =='抵押权':
             #抵押业务
             #预置数据（当前时间）

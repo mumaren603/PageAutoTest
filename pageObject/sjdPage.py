@@ -21,9 +21,9 @@ class sjdPage():
         time.sleep(1)
 
         #房屋业务涉及业务小类或者房屋类别选择
-        ywxl = params.get("ywxl")
-        fwlb = params.get("fwlb")
-        sffz = params.get("sffz")
+        ywxl = params.get("ywxl",None)
+        fwlb = params.get("fwlb",None)
+        sffz = params.get("sffz",None)
         print("params参数：{ywxl:%s,fwlb:%s,sffz:%s}" %(ywxl,fwlb,sffz))
 
         if bdcdyh[19:20] == 'F':
