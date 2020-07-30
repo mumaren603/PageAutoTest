@@ -6,7 +6,7 @@ initdata:
   sfTemplate: tz
   #小类
   params:
-    ywxl:
+    ywxl: 赠与
   #审批流程
   splc:
     wxtest: 2

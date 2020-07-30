@@ -38,7 +38,7 @@ class sjdPage():
                         WebTools(self.driver).choose_droplist_value('ywxl', 'xpath', "//select[@name='ywxl']/option[4]")
                     elif ywxl == '房改售房转移登记':
                         WebTools(self.driver).choose_droplist_value('ywxl', 'xpath', "//select[@name='ywxl']/option[5]")
-                    # 转移登记
+                    # 存量房转移登记
                     elif ywxl == '经济适用房上市':
                         WebTools(self.driver).choose_droplist_value('ywxl', 'xpath', "//select[@name='ywxl']/option[2]")
                     elif ywxl == '拆迁安置房上市':
@@ -47,10 +47,15 @@ class sjdPage():
                         WebTools(self.driver).choose_droplist_value('ywxl', 'xpath', "//select[@name='ywxl']/option[5]")
                     elif ywxl == '市场化商品房转移登记':
                         WebTools(self.driver).choose_droplist_value('ywxl', 'xpath', "//select[@name='ywxl']/option[6]")
+                    # 赠与、归并
+                    elif ywxl == '归并':
+                        WebTools(self.driver).choose_droplist_value('ywxl', 'xpath', "//select[@name='ywxl']/option[2]")
+                    elif ywxl == '赠与':
+                        WebTools(self.driver).choose_droplist_value('ywxl', 'xpath', "//select[@name='ywxl']/option[3]")
                     else:
                         pass
                 else:
-                    print("%s收件单业务小类必选！"%qllx)
+                    print("%s收件单业务小类必选！"% qllx)
                     return
             #房屋抵押--房屋类别
             elif qllx =='抵押权':
