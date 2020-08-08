@@ -13,14 +13,17 @@ class taskCenter():
         self.driver = driver
 
     def common(self):
+        # 判断办件中心菜单是否出现
+        WebTools(self.driver).check_element_is_exists('xpath', "//div[@xid='mainMenu']/div[1]/div[1]")
         # 办件中心
         WebTools(self.driver).mouse_click('xpath', "//div[@xid='mainMenu']/div[1]/div[1]")
         # 判断新建任务菜单是否出现
         WebTools(self.driver).check_element_is_exists('xpath', "//span[@xid='newTask']")
-        # 等待办件中心办件中数据加载
+        # 等待办件中心办件数据加载
         time.sleep(4)
         # 新建任务
         WebTools(self.driver).mouse_click('xpath',"//span[contains(text(),'新建任务')]")
+        # 判断新建任务菜单页是否出现
         WebTools(self.driver).check_element_is_exists('link_text', "国有建设用地使用权")
 
     def chooseNode(self,qllx=None,djlx=None,ywlx=None):
@@ -101,6 +104,9 @@ class taskCenter():
                         time.sleep(2)
                     elif ywlx =='赠与，归并（02205）':
                         WebTools(self.driver).mouse_doubleClick('xpath', "//div[contains(text(),'赠与，归并（02205）')]")
+                        time.sleep(2)
+                    elif ywlx =='作价出资（入股）（02206）':
+                        WebTools(self.driver).mouse_doubleClick('xpath', "//div[contains(text(),'作价出资（入股）（02206）')]")
                         time.sleep(2)
                 elif djlx == '变更登记':
                     pass

@@ -32,7 +32,7 @@ class Test_spfFirstChangeRegister():
             "qlrdhhm": generateTelnum(),
             "qlrtxdz": generateAddr()
         }
-
+    @pytest.mark.smoke
     def test_spfFirstChangeRegister(self,login,cmdopt):
         '''
         :流程 国有建设用地使用权及房屋所有权--转移登记--房屋首次转移登记（含商品房、经适房、安置房）（02201）
@@ -51,7 +51,7 @@ class Test_spfFirstChangeRegister():
         # 发起查询
         queryFunc(self.driver).query(bdcdyh, self.qllx, self.djlx)
         # 收件单
-        sjdPage(self.driver).sjdHandle(bdcdyh, self.qllx, **self.params)
+        sjdPage(self.driver).sjdHandle(bdcdyh, cmdopt,self.qllx, **self.params)
         # 申请人情况
         sqrqkPage(self.driver).sqrqkHandle(**self.qlrParams)
         # 申请表
@@ -59,7 +59,7 @@ class Test_spfFirstChangeRegister():
         # 不动产基本信息
         bdcjbxxPage(self.driver).bdcjbxxHandle(self.ywlx)
         # 收费领证表
-        sflzbPage(self.driver).sflzbHandle(self.sfTemplate)
+        sflzbPage(self.driver).sflzbHandle(cmdopt)
         # 办理意见表
         blyjPage(self.driver).blyjHandle()
         # 受理
@@ -69,7 +69,7 @@ class Test_spfFirstChangeRegister():
         # 登簿
         submitPage(self.driver).dbHandle(bdcdyh)
 
-        # 校验数据库(后期可以把数据库连接串配置化，这样可以针对不同环境校验)
+        # 数据库检查
         qlrmc = self.qlrParams.get("qlrmc")
         if qlrmc:
             try:

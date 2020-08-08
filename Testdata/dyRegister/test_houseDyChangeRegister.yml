@@ -1,0 +1,14 @@
+initdata:
+  qllx: 抵押权
+  djlx: 转移登记
+  ywlx: 不动产抵押转移（03202）
+  #小类
+  params:
+    ywxl: None
+    fwlb: 商品房
+  #审批流程
+  splc:
+    wxtest: 2
+    tztest: 2
+    yxtest: 1
+    sqtest: 0

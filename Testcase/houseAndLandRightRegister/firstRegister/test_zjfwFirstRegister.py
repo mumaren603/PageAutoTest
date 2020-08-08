@@ -60,7 +60,7 @@ class Test_zjfwFirstRegister():
         # 不动产基本信息
         bdcjbxxPage(self.driver).bdcjbxxHandle(self.ywlx)
         # 收费领证表
-        sflzbPage(self.driver).sflzbHandle(self.sfTemplate)
+        sflzbPage(self.driver).sflzbHandle(cmdopt)
         # 办理意见表
         blyjPage(self.driver).blyjHandle()
         # 受理

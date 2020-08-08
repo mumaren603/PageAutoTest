@@ -2,11 +2,11 @@ initdata:
   qllx: 国有建设用地使用权及房屋所有权
   djlx: 首次登记
   ywlx: 自建房屋（02102）
-  sfTemplate: tz
   params:
     ywxl: 单位自建房
   splc:
     wxtest: 2
     tztest: 2
     yxtest: 2
+    sqtest: 0
 

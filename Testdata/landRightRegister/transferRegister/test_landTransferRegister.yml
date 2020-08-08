@@ -2,11 +2,10 @@ initdata:
   qllx: 国有建设用地使用权
   djlx: 转移登记
   ywlx: 转移登记（01201）
-  #收费模板
-  sfTemplate: tz
   #审批流程
   splc:
     wxtest: 3
     tztest: 2
     yxtest: 2
+    sqtest: 0
 

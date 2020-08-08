@@ -2,10 +2,9 @@ initdata:
   qllx: 国有建设用地使用权
   djlx: 首次登记
   ywlx: 出让用地
-  #收费模板
-  sfTemplate: tz
   #审批流程
   splc:
     wxtest: 3
     tztest: 2
     yxtest: 2
+    sqtest: 0

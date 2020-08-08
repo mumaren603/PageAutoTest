@@ -2,8 +2,6 @@ initdata:
   qllx: 国有建设用地使用权及房屋所有权
   djlx: 转移登记
   ywlx: 房改售房（02202）
-  #收费模板
-  sfTemplate: tz
   #小类
   params:
     ywxl:
@@ -12,5 +10,6 @@ initdata:
     wxtest: 2
     tztest: 2
     yxtest: 1
+    sqtest: 0
 
 

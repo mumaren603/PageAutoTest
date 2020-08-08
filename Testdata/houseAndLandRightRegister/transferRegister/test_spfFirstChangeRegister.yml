@@ -2,8 +2,6 @@ initdata:
   qllx: 国有建设用地使用权及房屋所有权
   djlx: 转移登记
   ywlx: 房屋首次转移登记（含商品房、经适房、安置房）（02201）
-  #收费模板
-  sfTemplate: tz
   #小类
   params:
     ywxl: 市场化商品房首次登记
@@ -12,5 +10,6 @@ initdata:
     wxtest: 2
     tztest: 2
     yxtest: 0
+    sqtest: 0
 
 

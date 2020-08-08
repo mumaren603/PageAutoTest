@@ -23,7 +23,7 @@ class sqrqkPage():
         qlrdhhm = qlrParams.get("qlrdhhm")
         qlrtxdz = qlrParams.get("qlrtxdz")
         # --========新增权利人========--
-        # 首次登记为新增申请人，转移/变更登记为新增权利人,抵押业务为抵押权人
+        # 首次登记为新增申请人，转移/变更登记为新增权利人,抵押业务为新增抵押权人
         if ywlxNode == 'firstRegister':
             WebTools(self.driver).mouse_click('xpath', "//div[contains(text(),'申请人信息')]/../div[2]/span[1]")
             time.sleep(1)
@@ -35,7 +35,7 @@ class sqrqkPage():
             # 共有方式
             WebTools(self.driver).choose_droplist_value('GYFS', 'xpath', "//select[@name='GYFS']/option[2]")
         elif ywlxNode == 'dyRegister':
-            WebTools(self.driver).mouse_click('xpath', "//div[contains(text(),'抵押权人列表')]/../div[2]/span[2]")
+            WebTools(self.driver).mouse_click('xpath', "//div[contains(text(),'抵押权人列表')]/../div[2]/span[3]")
             time.sleep(1)
             WebTools(self.driver).choose_droplist_value('GYFS', 'xpath', "//select[@name='GYFS']/option[2]")
 

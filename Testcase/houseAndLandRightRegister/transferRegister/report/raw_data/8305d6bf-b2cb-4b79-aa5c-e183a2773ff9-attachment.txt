@@ -1,0 +1,20 @@
+命令行参数是：tztest
+配置文件: tztest
+配置文件路径是：D:/python/pageAutoTest/conf/tztest.yml
+{'envinfo': {'browserDriver': 'D:/python/pageAutoTest/chromeDriver/chromedriver.exe', 'url': 'http://172.0.0.248:8080', 'db': {'qj': 'KJK/KJK@172.0.0.247:1521/tzkjk', 'dj': 'DJJGK/DJJGK@172.0.0.247:1521/tzdj'}, 'loginUser': {'user': 'zcy', 'passwd': 123456}}}
+yaml中读取配置内容： {'envinfo': {'browserDriver': 'D:/python/pageAutoTest/chromeDriver/chromedriver.exe', 'url': 'http://172.0.0.248:8080', 'db': {'qj': 'KJK/KJK@172.0.0.247:1521/tzkjk', 'dj': 'DJJGK/DJJGK@172.0.0.247:1521/tzdj'}, 'loginUser': {'user': 'zcy', 'passwd': 123456}}}
+浏览器驱动路径：D:/python/pageAutoTest/chromeDriver/chromedriver.exe
+url路径：http://172.0.0.248:8080
+登录用户信息：{'user': 'zcy', 'passwd': 123456}
+当前测试用例路径是:D:/python/pageAutoTest/Testcase/houseAndLandRightRegister/transferRegister/test_spfFirstChangeRegister.py
+['D:/python/pageAutoTest/', 'houseAndLandRightRegister/transferRegister/test_spfFirstChangeRegister.py']
+测试数据路径是D:/python/pageAutoTest/Testdata/houseAndLandRightRegister/transferRegister/test_spfFirstChangeRegister.yml
+数据库连接信息：<cx_Oracle.Connection to KJK@172.0.0.247:1521/tzkjk>
+数据库连接成功
+数据库连接信息：<cx_Oracle.Connection to DJJGK@172.0.0.247:1521/tzdj>
+数据库连接成功
+DJJGK查询数据：321206008208GB00805F01030506
+数据符合！数据为：321206008208GB00805F01030506
+办件受理数据为：321206008208GB00805F01030506
+params参数：{ywxl:市场化商品房首次登记,fwlb:None,sffz:None}
+link_text:收费领证表元素查找错误

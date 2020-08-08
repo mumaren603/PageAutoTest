@@ -15,23 +15,20 @@ class sqbPage():
         WebTools(self.driver).mouse_click('link_text','申请表')
         time.sleep(4)
 
-        # print("djlx:", args[0])
-        print("kwargs:", kwargs.get('ywxl'))
-
-        if qllx == '国有建设用地使用权' or qllx =='国有建设用地使用权/房屋（构筑物）所有权':
-            if ywlx== '自建房屋（02102）':
+        if qllx == '国有建设用地使用权' or qllx =='国有建设用地使用权及房屋所有权':
+            if ywlx == '自建房屋（02102）':
                 # 业务小类
                 if kwargs.get('ywxl', None) == '个人自建房':
-                    WebTools(self.driver).choose_droplist_value('ywxl', 'name', '//select[@name="ywxl"]/option[3]')
+                    WebTools(self.driver).choose_droplist_value('ywxl', 'xpath', '//select[@name="ywxl"]/option[3]')
                 elif kwargs.get('ywxl', None) == '单位自建房':
-                    WebTools(self.driver).choose_droplist_value('ywxl', 'name', '//select[@name="ywxl"]/option[2]')
+                    WebTools(self.driver).choose_droplist_value('ywxl', 'xpath', '//select[@name="ywxl"]/option[2]')
                 else:
                     print("%s业务业务小类必填！" %ywlx)
 
                 # 领证地址
-                self.driver.execute_script('document.documentElement.scrollTop=500')
+                self.driver.execute_script('document.documentElement.scrollTop=700')
                 time.sleep(1)
-                WebTools(self.driver).choose_droplist_value('lzdz', 'name', '//select[@name="lzdz"]/option[2]')
+                WebTools(self.driver).choose_droplist_value('lzdz', 'xpath', '//select[@name="lzdz"]/option[2]')
 
             # 独用土地面积
             # WebTools(self.driver).input_content('xpath', "//input[@xid='tdsyqdymj']",'0')

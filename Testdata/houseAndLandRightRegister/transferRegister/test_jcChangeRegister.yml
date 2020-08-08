@@ -2,15 +2,14 @@ initdata:
   qllx: 国有建设用地使用权及房屋所有权
   djlx: 转移登记
   ywlx: 继承（02204）
-  #收费模板
-  sfTemplate: tz
   #小类
   params:
-    ywxl:
+    ywxl: 法院裁定
   #审批流程
   splc:
     wxtest: 2
     tztest: 2
     yxtest: 1
+    sqtest: 0
 
 

@@ -9,29 +9,38 @@ class sflzbPage():
     def __init__(self,driver):
         self.driver = driver
 
-    def sflzbHandle(self,sfTemplate):
-        WebTools(self.driver).mouse_click('link_text', '收费领证表')
-        time.sleep(2)
+    def sflzbHandle(self,env):
+        '''
+        说明：无锡收费为一套模板，宜兴泰州为一套模板，宿迁一套模板（不收费）
+        :param sfTemplate: 收费模板
+        :return:
+        '''
 
-        #将页面滚动条拖到顶部
-        js= "var q = document.documentElement.scrollTop=0"
-        self.driver.execute_script(js)
-        time.sleep(1)
-
-        if sfTemplate == 'wx':         #无锡收费是单独一套模板
-            WebTools(self.driver).mouse_click('xpath',"//span[@xid='initChargeBtn']")
-            #收费明细未配置，alert弹出框处理,新增收费,需处理
-        elif sfTemplate == 'tz':
-            WebTools(self.driver).choose_droplist_value('jfkm','xpath',"//select[@name='jfkm']/option[2]")
-
-            WebTools(self.driver).mouse_click('xpath',"//span[@xid='addnew']")
-
-            WebTools(self.driver).choose_droplist_value('SFXMLXMC','xpath',"//select[@name='SFXMLXMC']/option[2]")
-
-            WebTools(self.driver).mouse_click('link_text','保存')
+        # 收费信息
+        if env == 'sqtest':
+            WebTools(self.driver).mouse_click('link_text', '不动产证信息')
+            time.sleep(2)
         else:
-            pass
+            # 将页面滚动条拖到顶部
+            js = "var q = document.documentElement.scrollTop=0"
+            self.driver.execute_script(js)
+            WebTools(self.driver).mouse_click('link_text', '收费领证表')
+            time.sleep(2)
+            if env == 'wxtest':
+                WebTools(self.driver).mouse_click('xpath', "//span[@xid='initChargeBtn']")
+                # 收费明细未配置，alert弹出框处理,新增收费,需处理
+            elif env == 'tztest' or env =='yxtest':
+                WebTools(self.driver).choose_droplist_value('jfkm', 'xpath', "//select[@name='jfkm']/option[2]")
+                WebTools(self.driver).mouse_click('xpath', "//span[@xid='addnew']")
+                WebTools(self.driver).choose_droplist_value('SFXMLXMC', 'xpath', "//select[@name='SFXMLXMC']/option[2]")
+                WebTools(self.driver).mouse_click('link_text', '保存')
+            else:
+                pass
 
-        #证书生成
+        # 证书生成
         WebTools(self.driver).mouse_click('xpath', "//span[@xid='create']")
         time.sleep(3)
+
+
+
+

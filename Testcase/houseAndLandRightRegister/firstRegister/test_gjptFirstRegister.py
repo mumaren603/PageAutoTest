@@ -12,9 +12,7 @@ from pageObject.sqbPage import sqbPage
 from pageObject.bdcjbxxPage import bdcjbxxPage
 from pageObject.sflzbPage import sflzbPage
 from pageObject.blyjPage import blyjPage
-from pageObject.common.submitFunc import submitFunc
-from pageObject.common.FsOrShPage import FsOrShPage
-from pageObject.common.dbPage import dbPage
+from pageObject.submitPage import submitPage
 from dataCheck.dataResCheck import dataResCheck
 from utils.getTestdata import getTestcaseData,getTestdataPath
 
@@ -38,11 +36,9 @@ class Test_gjptFirstRegister():
             "qlrtxdz": generateAddr()
         }
 
-    def test_gjptFristRegister(self,login):
+    def test_gjptFristRegister(self,login,cmdopt):
         '''
         :流程 国有建设用地使用权及房屋所有权--首次登记--建筑物区分业主共有部分（02103）
-        :param login: 装饰器，登录操作封装，返回信息：(1) webdriver对象（2）数据库配置信息 例如：(<selenium.webdriver.chrome.webdriver.WebDriver (session="f8c32afd6fd5c944984d9aeaadfa9341")>,
-         {'dj': '172.0.0.247:1521/tzdj', 'qj': '172.0.0.247:1521/tzkjk'})
         :return:
         '''
         self.driver = login[0]
@@ -69,20 +65,12 @@ class Test_gjptFirstRegister():
         # sflzbPage(self.driver).sflzbHandle(self.sfTemplate)
         #办理意见表
         blyjPage(self.driver).blyjHandle()
-        #受理提交
-        submitFunc(self.driver).submitHandle('sl')
-        #复审环节
-        FsOrShPage(self.driver).FsOrShHandle(bdcdyh)
-        #复审提交
-        submitFunc(self.driver).submitHandle('fs')
-        #核定环节
-        FsOrShPage(self.driver).FsOrShHandle(bdcdyh)
-        #核定提交
-        submitFunc(self.driver).submitHandle('fs')
-        #等簿环节
-        FsOrShPage(self.driver).FsOrShHandle(bdcdyh)
-        #等簿提交
-        dbPage(self.driver).dbHandle()
+        # 受理
+        submitPage(self.driver).slHandle()
+        # 审核
+        submitPage(self.driver).shHandle(bdcdyh,cmdopt,self.splc)
+        # 登簿
+        submitPage(self.driver).dbHandle(bdcdyh)
 
         qlrmc = self.qlrParams.get("qlrmc")
         if qlrmc:

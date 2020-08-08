@@ -51,7 +51,7 @@ class Test_jcChangeRegister():
         # 发起查询
         queryFunc(self.driver).query(bdcdyh, self.qllx, self.djlx)
         # 收件单
-        sjdPage(self.driver).sjdHandle(bdcdyh, self.qllx, **self.params)
+        sjdPage(self.driver).sjdHandle(bdcdyh, cmdopt,self.qllx, **self.params)
         # 申请人情况
         sqrqkPage(self.driver).sqrqkHandle(**self.qlrParams)
         # 申请表
@@ -59,7 +59,7 @@ class Test_jcChangeRegister():
         # 不动产基本信息
         bdcjbxxPage(self.driver).bdcjbxxHandle(self.ywlx)
         # 收费领证表
-        sflzbPage(self.driver).sflzbHandle(self.sfTemplate)
+        sflzbPage(self.driver).sflzbHandle(cmdopt)
         # 办理意见表
         blyjPage(self.driver).blyjHandle()
         # 受理
@@ -69,6 +69,7 @@ class Test_jcChangeRegister():
         # 登簿
         submitPage(self.driver).dbHandle(bdcdyh)
 
+        # 数据库检查
         qlrmc = self.qlrParams.get("qlrmc")
         if qlrmc:
             try:

@@ -11,7 +11,7 @@ class sjdPage():
     def __init__(self,driver):
         self.driver = driver
 
-    def sjdHandle(self,bdcdyh,qllx,**params):
+    def sjdHandle(self,bdcdyh,env,qllx,**params):
         '''
         :param qllx:权利类型
         :param bdcdyh:不动产单元号
@@ -27,7 +27,7 @@ class sjdPage():
         print("params参数：{ywxl:%s,fwlb:%s,sffz:%s}" %(ywxl,fwlb,sffz))
 
         if bdcdyh[19:20] == 'F':
-            #房--业务小类
+            # 房--业务小类
             if qllx =='国有建设用地使用权及房屋所有权':
                 if ywxl:  #ywxl !='' and ywxl != None
                     if ywxl == '市场化商品房首次登记':
@@ -52,13 +52,18 @@ class sjdPage():
                         WebTools(self.driver).choose_droplist_value('ywxl', 'xpath', "//select[@name='ywxl']/option[2]")
                     elif ywxl == '赠与':
                         WebTools(self.driver).choose_droplist_value('ywxl', 'xpath', "//select[@name='ywxl']/option[3]")
+                    # 继承
+                    elif ywxl == '买卖' and env == 'sqtest':
+                        WebTools(self.driver).choose_droplist_value('ywxl', 'xpath', "//select[@name='ywxl']/option[2]")
+                    elif ywxl == '法院裁定' and env == 'sqtest':
+                        WebTools(self.driver).choose_droplist_value('ywxl', 'xpath', "//select[@name='ywxl']/option[3]")
                     else:
                         pass
                 else:
                     print("%s收件单业务小类必选！"% qllx)
                     return
-            #房屋抵押--房屋类别
-            elif qllx =='抵押权':
+            # 房屋抵押--房屋类别(无锡环境才有)
+            elif qllx =='抵押权' and (env == 'wxtest' or env == 'sqtest'):
                 if fwlb:
                     if fwlb == '商品房':
                         WebTools(self.driver).choose_droplist_value('fwlb', 'xpath', "//select[@name='fwlb']/option[2]")
@@ -69,6 +74,7 @@ class sjdPage():
                 else:
                     print("%s收件单房屋类别必选！"%qllx)
                     return
+
             #查封登记--业务小类,房屋类别
             elif qllx == '查封登记':
                 if ywxl:

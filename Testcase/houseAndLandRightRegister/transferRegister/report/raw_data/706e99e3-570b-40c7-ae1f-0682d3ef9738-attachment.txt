@@ -1,0 +1,7 @@
+配置文件: tztest
+配置文件路径是：D:/python/pageAutoTest/conf/tztest.yml
+{'envinfo': {'browserDriver': 'D:/python/pageAutoTest/chromeDriver/chromedriver.exe', 'url': 'http://172.0.0.248:8080', 'db': {'qj': 'KJK/KJK@172.0.0.247:1521/tzkjk', 'dj': 'DJJGK/DJJGK@172.0.0.247:1521/tzdj'}, 'loginUser': {'user': 'zcy', 'passwd': 123456}}}
+yaml中读取配置内容： {'envinfo': {'browserDriver': 'D:/python/pageAutoTest/chromeDriver/chromedriver.exe', 'url': 'http://172.0.0.248:8080', 'db': {'qj': 'KJK/KJK@172.0.0.247:1521/tzkjk', 'dj': 'DJJGK/DJJGK@172.0.0.247:1521/tzdj'}, 'loginUser': {'user': 'zcy', 'passwd': 123456}}}
+浏览器驱动路径：D:/python/pageAutoTest/chromeDriver/chromedriver.exe
+url路径：http://172.0.0.248:8080
+登录用户信息：{'user': 'zcy', 'passwd': 123456}

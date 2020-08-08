@@ -33,6 +33,7 @@ class Test_spfFirstRegister():
             "qlrtxdz": generateAddr()
         }
 
+    @pytest.mark.smoke
     def test_spfFristRegister(self,login,cmdopt):
         '''
         :流程 国有建设用地使用权及房屋所有权--首次登记--商品房、征地拆迁安置房、经适房、房改售房（02101）
@@ -53,7 +54,7 @@ class Test_spfFirstRegister():
         # 发起查询
         queryFunc(self.driver).query(bdcdyh, self.qllx, self.djlx)
         # 收件单
-        sjdPage(self.driver).sjdHandle(bdcdyh, self.qllx, **self.params)
+        sjdPage(self.driver).sjdHandle(bdcdyh, cmdopt,self.qllx, **self.params)
         # 申请人情况
         sqrqkPage(self.driver).sqrqkHandle(**self.qlrParams)
         # 申请表
@@ -61,7 +62,7 @@ class Test_spfFirstRegister():
         # 不动产基本信息
         bdcjbxxPage(self.driver).bdcjbxxHandle(self.ywlx)
         # 收费领证表
-        sflzbPage(self.driver).sflzbHandle(self.sfTemplate)
+        sflzbPage(self.driver).sflzbHandle(cmdopt)
         # 办理意见表
         blyjPage(self.driver).blyjHandle()
         # 受理
